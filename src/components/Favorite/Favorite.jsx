@@ -4,8 +4,6 @@ import { Button } from "@radix-ui/themes";
 import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
 import { useNavigate } from "react-router-dom";
-import LazyImage from "../LazyImage/LazyImage";
-
 const Favorite = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -18,11 +16,7 @@ const Favorite = () => {
       <section className="favorite">
         <div className="container">
           <div className="favorite-img">
-            <LazyImage 
-              src="/assets/images/favoritebook.jpg" 
-              alt="Favorite Book"
-              className="w-[400px] h-[400px] object-cover rounded-xl"
-            />
+            <img src="/assets/images/favoritebook.jpg" alt="Favorite Book" />
           </div>
           <div className="favorite-info">
             <div className="details">
@@ -63,16 +57,12 @@ const Favorite = () => {
         </div>
       </section>
 
-      <section className="award bg-yellow-100">
+      <section className="award  bg-yellow-100">
         <div className="details">
           <h1>2025 National Book Awards for Fiction Shortlist</h1>
           <Button className="explore">Explore Now</Button>
         </div>
-        <LazyImage 
-          src="/assets/images/award.png" 
-          alt="Award"
-          className="w-[300px]"
-        />
+        <img src="/assets/images/award.png" alt="Award" />
       </section>
     </>
   );
