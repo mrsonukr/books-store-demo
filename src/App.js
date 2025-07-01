@@ -4,7 +4,7 @@ import AppRoutes from "./AppRoutes";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/books">
       <AppRoutes />
     </Router>
   );
