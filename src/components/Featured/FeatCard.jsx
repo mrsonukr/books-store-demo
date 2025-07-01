@@ -4,6 +4,7 @@ import { Button } from "@radix-ui/themes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import Notification from "../Notifiaction/Notification";
+import LazyImage from "../LazyImage/LazyImage";
 
 // Hardcoded book data from SQL dump
 const staticBooks = [
@@ -102,7 +103,7 @@ const staticBooks = [
     price: 18.25,
     author_name: "Tom Hardy",
     rating: 4.0,
-    summary: "An adventurer’s perilous quest in the Amazon jungle.",
+    summary: "An adventurer's perilous quest in the Amazon jungle.",
     category: "Adventure",
     pdf_link: null,
   },
@@ -124,7 +125,7 @@ const staticBooks = [
     price: 26.50,
     author_name: "Neil Carter",
     rating: 5.0,
-    summary: "A futuristic saga of humanity’s journey across the galaxy.",
+    summary: "A futuristic saga of humanity's journey across the galaxy.",
     category: "Science Fiction",
     pdf_link: null,
   },
@@ -135,9 +136,9 @@ const FeatCard = ({ title = "Best Seller Books" }) => {
   const sectionRef = useRef(null);
   const [showLeftOverlay, setShowLeftOverlay] = useState(false);
   const [showRightOverlay, setShowRightOverlay] = useState(false);
-  const [books] = useState(staticBooks); // Use static data directly
+  const [books] = useState(staticBooks);
   const [notifications, setNotifications] = useState([]);
-  const [showSkeleton, setShowSkeleton] = useState(true); // Show skeleton initially
+  const [showSkeleton, setShowSkeleton] = useState(true);
   const [isHistoryNavigation, setIsHistoryNavigation] = useState(false);
 
   const updateOverlays = useCallback(() => {
@@ -274,7 +275,11 @@ const FeatCard = ({ title = "Best Seller Books" }) => {
               {books.map((book) => (
                 <div className="book-card" key={book.book_id}>
                   <div className="book-img">
-                    <img src={book.book_image} alt={book.book_name} />
+                    <LazyImage 
+                      src={book.book_image} 
+                      alt={book.book_name}
+                      className="w-[200px] h-[200px] transition-transform duration-300 hover:scale-110"
+                    />
                     <div className="price">
                       <h2>₹{book.price}</h2>
                     </div>

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@radix-ui/themes";
 import { Link } from "react-router-dom";
+import LazyImage from "../components/LazyImage/LazyImage";
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -106,7 +107,7 @@ const CartPage = () => {
                       className="bg-white rounded-lg p-4 flex items-center justify-between border border-zinc-200"
                     >
                       <div className="flex items-start">
-                        <img
+                        <LazyImage
                           src={item.image}
                           alt={item.title}
                           className="w-16 h-24 object-cover rounded-md"
