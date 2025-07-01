@@ -55,8 +55,8 @@ const Header = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/sell" activeClassName="active">
-              Sell Your Book
+            <NavLink to="/admin" activeClassName="active">
+              Admin Panel
             </NavLink>
           </li>
           <li>
